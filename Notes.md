@@ -17,3 +17,25 @@ https://moodle.ifsc.edu.br/mod/page/view.php?id=257637
 - Síncrona: só começa uma outra tarefa ao término da primeira.
 - Assíncrona: 
 - Python possui biblioteca: asyncio
+
+# Endianness
+
+## Big Endian
+MSB    LSB
+
+Addr  Addr+1
+## Littlle Endian
+LSB    MSB
+
+Addr  Addr+1
+
+# How to compile proto
+```proto
+    protoc --python_out=. tftp.proto
+```
+
+## Steps to Do TFTP2
+
+Pegar o protocolo desenvolvido no primeiro projeto e acomodá-lo às regras do tftp2.proto deste repositório.
+
+Verificar o áudio pra qualquer explicação que falte.
