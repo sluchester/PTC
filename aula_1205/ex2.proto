@@ -1,0 +1,14 @@
+syntax = "proto2";
+ 
+package exemplo;
+
+message Valor {
+  required int32 valor = 1;
+  required int32 timestamp = 2;
+}
+ 
+message Ativo {
+  required string nome = 1;
+  required int32 id = 2;
+  repeated Valor valores  = 3;
+}

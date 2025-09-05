@@ -1,0 +1,3 @@
+/home/luan/Serialemu/CMakeFiles/serialemu.dir
+/home/luan/Serialemu/CMakeFiles/edit_cache.dir
+/home/luan/Serialemu/CMakeFiles/rebuild_cache.dir

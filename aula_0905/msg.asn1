@@ -1,0 +1,10 @@
+Protocolo DEFINITIONS AUTOMATIC TAGS ::=
+BEGIN
+
+Mensagem ::= SEQUENCE {
+  tipo INTEGER,
+  id PrintableString (SIZE(1..16)),
+  valor INTEGER
+}
+
+END

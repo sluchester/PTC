@@ -1,0 +1,75 @@
+syntax = "proto2";
+
+package tftp2;
+
+enum Mode{
+    octet = 1;
+    netascii = 2;
+    mail = 3;
+}
+
+//on message, the number after "=" is just for identify that field (tag)
+message Transfer{
+    required string filename = 1;
+    required Mode mode = 2;
+}
+
+message Data{
+    required uint32 blocknum = 1;
+    required bytes body = 2;
+}
+
+message Ack{
+    required uint32 blocknum = 1;
+}
+
+enum ErrorCode{
+    undefined = 1;
+    fileNotFound = 2;
+    accessViolation = 3;
+    notEnoughSpace = 4;
+    illegalOperation = 5;
+    unknownTID = 6;
+    fileExists = 7;
+    unknownUser = 8;
+}
+
+message Error{
+    required ErrorCode code = 1;
+    required string descr = 2;
+}
+
+message Archive{
+    required string name = 1;
+    required uint32 size = 2;
+}
+
+message ListItem{
+    oneof item{
+        Archive archive = 1;
+        string dir = 2;
+    }
+}
+
+message ListResponse{
+    repeated ListItem items = 1;
+}
+
+message Move {
+    required string src = 1;
+    optional string dest = 2;
+}
+
+message Mensagem{
+    oneof msg{
+        Transfer rrq = 1;
+        Transfer wrq = 2;
+        Data data = 3;
+        Ack ack = 4;
+        Error error = 5;
+        string list = 6;
+        ListResponse list_resp = 7;
+        string mkdir = 8;
+        Move move = 9;
+    }
+}
